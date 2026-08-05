@@ -1,105 +1,210 @@
-# main.py
-"""
-==========================================================
- Project ULTRON
- AI Desktop Assistant
- Author : Your Name
- Version: 1.0.0
-==========================================================
-"""
+# 🤖 Project ULTRON
 
-import sys
-from datetime import datetime
+An AI-powered desktop assistant built with Python.
 
-from PySide6.QtWidgets import QApplication
+Project ULTRON is an original, open-source AI assistant inspired by futuristic computer assistants. It supports voice interaction, local AI models, computer vision, desktop automation, and a modern graphical interface.
 
-from config import Config
-from ai.assistant import Assistant
-from speech.voice import VoiceEngine
-from vision.camera import VisionSystem
-from ui.window import UltronWindow
+> **Disclaimer**
+>
+> This project is an original creation inspired by science-fiction AI assistants. It is **not affiliated with or endorsed by Marvel**, and it does not reproduce copyrighted characters, artwork, or assets.
 
+---
 
-class Ultron:
+# Features
 
-    def __init__(self):
+- 🎤 Voice Recognition
+- 🔊 Text-to-Speech
+- 🧠 AI Chat Assistant
+- 👀 Webcam Vision
+- 😊 Face Detection
+- 📦 Object Detection
+- 💻 Desktop Automation
+- 🌐 Internet Search (optional)
+- 💾 Conversation Memory
+- 🖥️ Modern Desktop Interface
+- ⚡ Modular Architecture
 
-        print("=" * 60)
-        print("        PROJECT ULTRON INITIALIZING")
-        print("=" * 60)
+---
 
-        self.config = Config()
+# Project Structure
 
-        print("[✓] Configuration Loaded")
+```
+Project-ULTRON/
 
-        self.assistant = Assistant(self.config)
+├── main.py
+├── config.py
+├── requirements.txt
+├── README.md
+│
+├── ai/
+│   ├── assistant.py
+│   ├── memory.py
+│   └── llm.py
+│
+├── speech/
+│   └── voice.py
+│
+├── vision/
+│   └── camera.py
+│
+├── ui/
+│   └── window.py
+│
+├── data/
+│   └── memory.db
+│
+├── assets/
+│
+└── models/
+```
 
-        print("[✓] AI Loaded")
+---
 
-        self.voice = VoiceEngine(self.config)
+# Requirements
 
-        print("[✓] Voice Engine Loaded")
+- Python 3.11 or newer
+- Windows, Linux, or macOS
 
-        self.vision = VisionSystem(self.config)
+---
 
-        print("[✓] Vision Module Loaded")
+# Installation
 
-        self.window = UltronWindow(self)
+## 1. Clone the repository
 
-        print("[✓] UI Loaded")
+```bash
+git clone https://github.com/yourusername/Project-ULTRON.git
+cd Project-ULTRON
+```
 
-    ########################################################
+## 2. Create a virtual environment
 
-    def start(self):
+### Windows
 
-        print("\nSystem Online")
-        print("--------------------------")
-        print("Time :", datetime.now().strftime("%H:%M:%S"))
-        print("Assistant :", self.config.ASSISTANT_NAME)
-        print("--------------------------")
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
 
-        self.assistant.initialize()
+### Linux / macOS
 
-        self.voice.initialize()
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
 
-        self.vision.initialize()
+## 3. Install dependencies
 
-        self.window.show()
+```bash
+pip install -r requirements.txt
+```
 
-    ########################################################
+---
 
-    def shutdown(self):
+# Running the Project
 
-        print("\nShutting Down...")
+```bash
+python main.py
+```
 
-        self.voice.shutdown()
+---
 
-        self.vision.shutdown()
+# Recommended AI Backend
 
-        self.assistant.shutdown()
+This project is designed to work with **Ollama**.
 
-        print("Goodbye.")
+1. Install Ollama from https://ollama.com
+2. Pull a supported model:
 
+```bash
+ollama pull llama3.1:8b
+```
 
-###############################################################
+3. Start Ollama before launching the application.
 
+---
 
-def main():
+# Technologies Used
 
-    app = QApplication(sys.argv)
+- Python
+- PySide6
+- OpenCV
+- SpeechRecognition
+- pyttsx3
+- Ollama
+- SQLite
+- PyAutoGUI
 
-    ultron = Ultron()
+---
 
-    ultron.start()
+# Roadmap
 
-    exit_code = app.exec()
+## Phase 1
 
-    ultron.shutdown()
+- [x] AI Chat
+- [x] Voice Engine
+- [ ] GUI
+- [ ] Camera
+- [ ] Memory
 
-    sys.exit(exit_code)
+## Phase 2
 
+- [ ] Face Recognition
+- [ ] Object Detection
+- [ ] Wake Word
+- [ ] Plugin System
 
-###############################################################
+## Phase 3
 
-if __name__ == "__main__":
-    main()
+- [ ] Smart Home Integration
+- [ ] Mobile App
+- [ ] Cloud Synchronization
+- [ ] Multi-Agent Support
+
+---
+
+# Contributing
+
+Contributions are welcome.
+
+1. Fork the repository.
+2. Create a new branch.
+3. Commit your changes.
+4. Open a Pull Request.
+
+Please include clear descriptions and keep code style consistent.
+
+---
+
+# License
+
+This project is licensed under the MIT License.
+
+See the `LICENSE` file for details.
+
+---
+
+# Acknowledgements
+
+This project uses open-source software from the Python community, including:
+
+- Python
+- OpenCV
+- PySide6
+- Ollama
+- SQLite
+
+Thanks to all contributors to these projects.
+
+---
+
+# Contact
+
+If you have ideas, improvements, or bug reports, please open a GitHub Issue or Pull Request.
+
+---
+
+## Project Status
+
+🚧 **Under Active Development**
+
+New features and improvements are planned as the project evolves.
